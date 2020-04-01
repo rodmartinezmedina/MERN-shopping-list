@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AppNavbar from "./components/AppNavbar"
 
 import './App.css';
 
@@ -7,6 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+    <AppNavbar />
       <h1>Hello Clean Human. No virus detected</h1>
     </div>
   );
