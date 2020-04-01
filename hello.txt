@@ -1,0 +1,2 @@
+This is an open source project. It has practice purpouses
+Used Brad Traversy's tutorials.
