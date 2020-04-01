@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-//to get data from the body in the post/ get requests
 const bodyParser = require('body-parser');
 
 const items = require('./routes/api/items');
@@ -15,13 +14,15 @@ const db = require('./config/keys').mongoURI;
 
 //Connect to MongoDB
 mongoose
-.connect(db)
+.connect(db, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+})
 .then(() => console.log('Mongo DB Connected...!'))
 .catch(err => console.log(err));
 
-//Use Route
-
-app.use('/api/items.js', items);
+//Use Routes
+app.use('/api/items', items);
 
 
 const port = process.env.PORT || 5000;
