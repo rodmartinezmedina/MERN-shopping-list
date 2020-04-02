@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import {Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuid from 'uuid/v4';
+import{ connect } from 'react-redux';
+import { getItems } from '../actions/itemActions';
+import PropTypes from 'prop-types';
+
 
 class ShoppingList extends Component {
-  state = {
-    items: [
-      {id: uuid(), name: 'Eggs'},
-      {id: uuid(), name: 'Milk'},
-      {id: uuid(), name: 'Steak'},
-      {id: uuid(), name: 'Water'}      
-    ]
+
+  componentDidMount () {
+    this.props.getItems();
   }
 
+
     render() {
-      const { items } = this.state;
+      // item represents the entire state object
+      // items represent the array inside the state
+      // this.props.item.items
+      const { items } = this.props.item;
+
       return (
         <Container>
           <Button
@@ -57,10 +62,20 @@ class ShoppingList extends Component {
         </Container>
       )
     }
+}
 
-
-
+ShoppingList.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
 }
 
 
-export default ShoppingList;
+
+const mapStateToProps = (state) => ({
+  // WE USE STATE.ITEM BEACUSE IN THE ROOT REDUCER (INDEX.JS) WE CALL IT ITEM
+  item: state.item
+});
+
+
+
+export default connect(mapStateToProps, { getItems })(ShoppingList);
