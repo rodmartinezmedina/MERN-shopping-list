@@ -12,7 +12,7 @@ import {
 
 import { connect} from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import uuid from 'uuid/v4';
+
 
 class ItemModal extends Component {
   state = {
@@ -36,7 +36,6 @@ class ItemModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      id: uuid(),
       name: this.state.name
     }
 
@@ -89,7 +88,10 @@ class ItemModal extends Component {
       </div>
     )
   }
-
 }
 
-export default connect()(ItemModal);
+const mapStateToProps = state => ({
+  item: state.item
+})
+
+export default connect(mapStateToProps, { addItem })(ItemModal);
