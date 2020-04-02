@@ -7,3 +7,12 @@ export const getItems = () => {
     // payload: res.data
   };
 }
+
+
+// This function gets sent to the reducer along with the payload (id that was passed in ShoppingList, where it came from)
+export const deleteItem = (id) => {
+  return {
+    type: DELETE_ITEM,
+    payload:id
+  };
+};
