@@ -23,7 +23,7 @@ mongoose
 .then(() => console.log('Mongo DB Connected...!'))
 .catch(err => console.log(err));
 
-//Use Routes
+// Routes Middleware
 app.use('/api/items', items);
 
 //Serve static assets if in production
