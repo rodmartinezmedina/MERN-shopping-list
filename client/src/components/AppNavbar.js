@@ -11,6 +11,10 @@ import {
   NavLink
 } from 'reactstrap';
 
+import RegisterModal from './auth/RegisterModal';
+import Logout from './auth/logout';
+
+
 class AppNavbar extends Component { 
   state = {
     isOpen: false
@@ -30,13 +34,22 @@ class AppNavbar extends Component {
           <NavbarBrand href="/">ShoppingList</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            
+            <Nav className="ml-auto" navbar>              
+              <NavItem>
+                <RegisterModal />
+              </NavItem>
+              <NavItem>
+                <Logout />
+              </NavItem>
+
               <NavItem>
                 <NavLink href="https://github.com/rodmartinezmedina">
                   Rodrigo's Github
                 </NavLink>
               </NavItem>
             </Nav>
+            
           </Collapse>
         </Container>
       </Navbar>
