@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
@@ -13,7 +14,7 @@ const User = require('../../models/User');
 // @desc   Authenticate user
 // @access Public
 router.post('/', (req, res) => {
-  const {  name, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   //Simple validtion  
   if (!name || !email || !password) {
