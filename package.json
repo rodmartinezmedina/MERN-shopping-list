@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/rodmartinezmedina/MERN-shopping-list#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.5",
     "concurrently": "^5.1.0",
-    "express": "^4.17.3",
-    "mongoose": "^6.13.6"
+    "express": "^4.22.2",
+    "mongoose": "^6.13.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
